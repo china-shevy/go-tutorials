@@ -18,7 +18,12 @@ In this chapter, you will learn about basic math operations in Go and how to con
 
 In this chapter, you will learn several useful data structures such as `Array/Slice`, `Stack`, `Queue`. You will also learn different types of control flow such as `if/else`, `switch`, `for`loop which are necessary in order to interact with data structures.
 
-# Chapter 3 Lexing/Tokenization, Finite State Machine, Regular Expression and Recursive Structure!
+# Chapter 3 IO
+输入输出
+
+You will learn basic IO in Go and know how to interact with user input from the terminal. You will learn some basics of how to structure your programm and make everything well organized.
+
+# Chapter 4 Lexing/Tokenization, Finite State Machine, Regular Expression and Recursive Structure!
 符号化、有限状态机、正则表达式和递归结构！
 
 This chapter might be one of the most important chapter of the whole course!
@@ -30,3 +35,7 @@ We will also learn a powerful tool known as `Regular Expression` and see its rel
 Finally, we will write a formal lexer/tokenizer to process math expressions such as `42 + (233 * (666 - 998) / 502)`.
 
 You will become a `Finiate State Machine` master/monster after this chapter!
+
+# Chapter 5 Object Oriented Design
+
+# Chapter 6 Concurrent Programming
