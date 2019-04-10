@@ -46,6 +46,57 @@ func TestLexer(t *testing.T) {
 		tokens)
 }
 
+func TestLexerParenthese(t *testing.T) {
+	tokens, _ := Lex("(1+1")
+	require.Equal(t,
+		[]Token{
+			LeftParentheses{},
+			Number{Value: "1"},
+			Operator{Value: "+"},
+			Number{Value: "1"},
+		},
+		tokens)
+
+	tokens, _ = Lex("(1+1)")
+	require.Equal(t,
+		[]Token{
+			LeftParentheses{},
+			Number{Value: "1"},
+			Operator{Value: "+"},
+			Number{Value: "1"},
+			RightParentheses{},
+		},
+		tokens)
+
+	tokens, _ = Lex("(1+1)/99") // support multiple digit numbers
+	require.Equal(t,
+		[]Token{
+			LeftParentheses{},
+			Number{Value: "1"},
+			Operator{Value: "+"},
+			Number{Value: "1"},
+			RightParentheses{},
+			Operator{Value: "/"},
+			Number{Value: "99"},
+		},
+		tokens)
+
+	tokens, _ = Lex("(1+(1+1))")
+	require.Equal(t,
+		[]Token{
+			LeftParentheses{},
+			Number{Value: "1"},
+			Operator{Value: "+"},
+			LeftParentheses{},
+			Number{Value: "1"},
+			Operator{Value: "+"},
+			Number{Value: "1"},
+			RightParentheses{},
+			RightParentheses{},
+		},
+		tokens)
+}
+
 func TestLexerError(t *testing.T) {
 	tokens, err := Lex("a")
 	require.Empty(t, tokens)
