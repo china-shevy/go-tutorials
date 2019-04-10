@@ -15,9 +15,10 @@ func Repl() error {
 		if err != nil {
 			return err
 		}
-		if len(sentence) == 1 {
+
+		if len(sentence) <= 2 {
 			continue
 		}
-		fmt.Println(compute.Compute(string(sentence[:len(sentence)-1])))
+		fmt.Println(compute.Compute(string(sentence[:len(sentence)-2])))
 	}
 }

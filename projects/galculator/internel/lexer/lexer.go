@@ -8,7 +8,7 @@ type ToekenReceiver struct {
 	tokens []Token
 }
 
-func Lex(input string) ([]Token, error) {
+func Lex(input string) ([]Token, *Error) {
 	t := ToekenReceiver{}
 	r := NewRuneEmitter(input)
 	for next, err := StateBegin(r, &t); next != nil || err != nil; {
@@ -43,47 +43,3 @@ func (r *RuneEmitter) Next() rune {
 	next := <-r.ch
 	return next
 }
-
-type Token interface {
-	Literal() string
-	Type() string
-}
-
-type Number struct {
-	Value string
-}
-
-func (n Number) Literal() string {
-	return n.Value
-}
-
-func (n Number) Type() string {
-	return "Number"
-}
-
-type Operator struct {
-	Value string
-}
-
-func (o Operator) Literal() string {
-	return o.Value
-}
-
-func (o Operator) Type() string {
-	return "Operator"
-}
-
-var (
-	Add = Operator{
-		Value: "+",
-	}
-	Sub = Operator{
-		Value: "-",
-	}
-	Mul = Operator{
-		Value: "*",
-	}
-	Div = Operator{
-		Value: "/",
-	}
-)

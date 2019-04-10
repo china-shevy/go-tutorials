@@ -1,3 +1,5 @@
 main*
 *.json
 .idea
+galculator/galculator
+*.exe

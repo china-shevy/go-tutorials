@@ -14,9 +14,9 @@ type tokenReciver interface {
 	Send(Token)
 }
 
-type StateFunc func(runeEmitter, tokenReciver) (StateFunc, error)
+type StateFunc func(runeEmitter, tokenReciver) (StateFunc, *Error)
 
-func StateBegin(r runeEmitter, tokens tokenReciver) (StateFunc, error) {
+func StateBegin(r runeEmitter, tokens tokenReciver) (StateFunc, *Error) {
 	next := r.Next()
 	switch next {
 	case ' ': // Single quote in Go is for character.
@@ -28,14 +28,43 @@ func StateBegin(r runeEmitter, tokens tokenReciver) (StateFunc, error) {
 			Value: string(next),
 		})
 		return StateOperator, nil
+	case '(':
+		tokens.Send(LeftParentheses{})
+		return StateLeftParenthesis, nil
 	default:
-		return nil, fmt.Errorf("character '%s' is not expected", string(next))
+		return nil, &Error{fmt.Sprintf("character '%s' is not expected", string(next))}
+	}
+}
+
+func StateLeftParenthesis(r runeEmitter, tokens tokenReciver) (StateFunc, *Error) {
+	return StateBegin, nil
+}
+
+func StateRightParentheses(r runeEmitter, tokens tokenReciver) (StateFunc, *Error) {
+	next := r.Next()
+	switch next {
+	case ' ': // Single quote in Go is for character.
+		return StateRightParentheses, nil
+	case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
+		return nil, &Error{fmt.Sprintf("number is not expected after )")}
+	case '+', '-', '*', '/':
+		tokens.Send(Operator{Value: string(next)})
+		return StateOperator, nil
+	case '(':
+		return nil, &Error{fmt.Sprintf("( is not expected after )")}
+	case ')':
+		tokens.Send(RightParentheses{})
+		return StateRightParentheses, nil
+	case scanner.EOF:
+		return nil, nil
+	default:
+		return nil, &Error{fmt.Sprintf("character '%s' is not expected", string(next))}
 	}
 }
 
 func StateNumber(read []rune) StateFunc {
 
-	return func(r runeEmitter, tokens tokenReciver) (StateFunc, error) {
+	return func(r runeEmitter, tokens tokenReciver) (StateFunc, *Error) {
 		next := r.Next()
 		switch next {
 		case ' ':
@@ -50,25 +79,34 @@ func StateNumber(read []rune) StateFunc {
 				Value: string(next),
 			})
 			return StateOperator, nil
+		case ')':
+			tokens.Send(Number{
+				Value: string(read),
+			})
+			tokens.Send(RightParentheses{})
+			return StateRightParentheses, nil
 		case scanner.EOF:
 			tokens.Send(Number{
 				Value: string(read),
 			})
 			return nil, nil
 		default:
-			return nil, fmt.Errorf("character '%s' is not expected after a number", string(next))
+			return nil, &Error{fmt.Sprintf("character '%s' is not expected after a number", string(next))}
 		}
 	}
 }
 
-func StateOperator(r runeEmitter, tokens tokenReciver) (StateFunc, error) {
+func StateOperator(r runeEmitter, tokens tokenReciver) (StateFunc, *Error) {
 	next := r.Next()
 	switch next {
 	case ' ':
 		return StateOperator, nil
 	case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9':
 		return StateNumber([]rune{next}), nil
+	case '(':
+		tokens.Send(LeftParentheses{})
+		return StateLeftParenthesis, nil
 	default:
-		return nil, fmt.Errorf("character '%s' is not expected after an operator", string(next))
+		return nil, &Error{fmt.Sprintf("character '%s' is not expected after an operator", string(next))}
 	}
 }
