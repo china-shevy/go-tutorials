@@ -8,7 +8,7 @@ In this project, you will learn about Stack, Finite State Machine, Recursive Typ
 
 This project is amied for absolute beginners. But I believe it is also educational for professional programmers.  
 
-本项目致力于教会学生如何写一个简易的解释器（一个基于命令行的交互式计算题）。
+本项目致力于教会学生如何写一个简易的解释器（一个基于命令行的交互式计算机）。
 
 在这个项目中，你会学到很多数据结构与算法的应用，比如：栈、有限状态机、递归结构、符号化、面向对象设计、命令行输入输出、和大量的高级字符串/序列处理技巧以及并发编程。
 
