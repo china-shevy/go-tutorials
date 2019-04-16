@@ -13,10 +13,14 @@ This project is amied for absolute beginners. But I believe it is also education
 
 In this chapter, you will learn about basic math operations in Go and how to convert a string `"1+1"` into a data structure in Go and get the result `2` back as a string `"2"`. You will learn the fundenmental building blocks of programming such as `Variable`, `Function`, `Type`, `String`, and of course, a little amount of Math!
 
+在这一章节中，你会学习到基本的编程概念和这些概念在 Go 中的表现以及应用。你会学习到变量（Variable）、函数（Function）、类型（Type）、控制流(Control Flow)、循环（Loop）、条件（if/else）、以及一些简单的数学编程。
+
 # Chapter 2 Control Flow and Data Structures
 控制流和数据结构
 
 In this chapter, you will learn several useful data structures such as `Array/Slice`, `Stack`, `Queue`. You will also learn different types of control flow such as `if/else`, `switch`, `for`loop which are necessary in order to interact with data structures.
+
+在这一章节中，你会学习更多的控制流和数据结构。我们会强调 4 个数据结构：数组（Array）、切片（Slice）、栈（Stack）、队列（Queue）。其中，栈和队列是抽象数据结构。我们会讲到抽象数据结构和面向对象编程的一些关系。我们也会学习如何自定义新的类型和数据结构。
 
 # Chapter 3 IO
 输入输出
