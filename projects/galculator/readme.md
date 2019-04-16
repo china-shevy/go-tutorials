@@ -1,11 +1,17 @@
-# Galculator
+# Go 语言编程入门项目之 Galculator
+__Introduction to Programming with Go's Project: Galculator__
+
+
 Galculator is an educational project which teaches students how to write an interpreter for a tiny arithmetic language, a calculator repl if you wish.  
-本项目致力于教会学生如何写一个简易的解释器（一个基于命令行的交互式计算题）。
 
 In this project, you will learn about Stack, Finite State Machine, Recursive Type Definition, Lexing/Tokenization, Object Oriented Design, Terminal IO and many advanced string/sequence manipulation techniques and concurrent programming.  
-在这个项目中，你会学到很多数据结构与算法的应用，比如：栈、有限状态机、递归结构、符号化、面向对象设计、命令行输入输出、和大量的高级字符串/序列处理技巧以及并发编程。
 
 This project is amied for absolute beginners. But I believe it is also educational for professional programmers.  
+
+本项目致力于教会学生如何写一个简易的解释器（一个基于命令行的交互式计算题）。
+
+在这个项目中，你会学到很多数据结构与算法的应用，比如：栈、有限状态机、递归结构、符号化、面向对象设计、命令行输入输出、和大量的高级字符串/序列处理技巧以及并发编程。
+
 这个项目是为了绝对初学者而设计的。不过我相信很多职业程序员也可以从中受益。
 
 ## Chapter 1 The Fundemental of Programming and Basic Math Operations
