@@ -1,6 +1,7 @@
 # Go 语言编程入门项目之 Galculator
 __Introduction to Programming with Go's Project: Galculator__
 
+![](./screenshot.png)
 
 Galculator is an educational project which teaches students how to write an interpreter for a tiny arithmetic language, a calculator repl if you wish.  
 
