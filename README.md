@@ -2,7 +2,10 @@
 
 ## 视频 Videos
 ### Design Patterns
-[Concurrent Map 1](https://www.youtube.com/watch?v=_P3TV3XhzF8&t=3s)
+#### Advanced Go Concurrency Patterns
+[Playlist](https://www.youtube.com/playlist?list=PLwY2GJhAPWRfFqhVY1o79ffwF3jSxtzZY)  
+[Concurrent Map 1: The Basics](https://www.youtube.com/watch?v=_P3TV3XhzF8)  
+[Concurrent Map 2: Make It Concurrent](https://youtu.be/j8OWDu3X5G4)
 
 ### Beginner Level
 [YouTube English](https://www.youtube.com/playlist?list=PLwY2GJhAPWRdsMoDghEowU11FFpNHkEYX)  
