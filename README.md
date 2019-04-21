@@ -1,8 +1,18 @@
 # Go Faster Than Anyone Else 跑得比谁都快
 
-This is a collection of tutorial series I made for my teaching. The title here is more about Go programmers (us!) to be more productive instead of fast program at the runtime, though Go is also very very very fast. But, more matter how fast a language is, a bad programmer can always write slow, insecure and even incorrect code. Therefore, having a deep understanding of the language and ideas behind it is critical to our success.
+This is a collection of tutorial series I made for my teaching. The title here is more about Go programmers (us!) to be more productive instead of fast program at the runtime, though Go is also very very very fast. But, no matter how fast a language is, a bad programmer can always write slow, insecure and even incorrect code. Therefore, having a deep understanding of the language and ideas behind it is critical to our success.
 
 I don't claim to be an expert but I believe that I have something valuable to share. Use this tutorial as an advice from me instead of some golden rule.
+
+## What's Included
+This repository contains 
+1. Links to my video series on [YouTube](https://www.youtube.com/channel/UCHPHGYUfAfRIvf1RT9sADLg) and [Bilibili](https://space.bilibili.com/16696495)
+2. Several complete training projects. You can find them in the [projects](projects) directory.
+3. Many articles about all kinds of topics in Go. Articles are mostly about advanced design patterns. I don't cover basic syntax.
+4. Many small quizzes as unit tests.
+5. Many example code of topics I covered in videos.
+
+The repository is not complete yet. I will add more as my teaching grows.
 
 ## 视频 Videos
 ### Design Patterns
