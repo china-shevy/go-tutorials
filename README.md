@@ -1,5 +1,9 @@
 # Go Faster Than Anyone Else 跑得比谁都快
 
+This is a collection of tutorial series I made for my teaching. The title here is more about Go programmers (us!) to be more productive instead of fast program at the runtime, though Go is also very very very fast. But, more matter how fast a language is, a bad programmer can always write slow, insecure and even incorrect code. Therefore, having a deep understanding of the language and ideas behind it is critical to our success.
+
+I don't claim to be an expert but I believe that I have something valuable to share. Use this tutorial as an advice from me instead of some golden rule.
+
 ## 视频 Videos
 ### Design Patterns
 #### Advanced Go Concurrency Patterns
