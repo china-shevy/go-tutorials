@@ -19,12 +19,11 @@ func TestChallenge1(t *testing.T) {
 	}()
 
 	// The only requirement is that it accepts an io.Reader. You need to decide the storage mechanism.
+	// 唯一的要求是 Log 函数接受一个 io.Reader。你自己需要决定储存机制。
 	// Question:
 	//		Should it accept io.ReadCloser instead?
 	err := server.Log(strings.NewReader(`{"time": "2019-01-06", "number": 123}`)); require.NoError(t, err)	// Notice this log is the same.
 	err := server.Log(strings.NewReader(`{"time": "2019-01-06", "number": 123}`)); require.NoError(t, err)	// Should you keep duplication?
-	err = server.Log(strings.NewReader(`{"time": "2019-01-05", "number": 124}`)); require.NoError(t, err)
-	err = server.Log(strings.NewReader(`{"time": "2019-01-04", "number": 125}`)); require.NoError(t, err)
 	err = server.Log(strings.NewReader(`{"time": "2019-01-03", "number": 126}`)); require.NoError(t, err)
 	err = server.Log(strings.NewReader(`{"time": "2019-01-02", "number": 127}`)); require.NoError(t, err)
 	err = server.Log(strings.NewReader(`{"time": "2019-01-01", "number": 128}`)); require.NoError(t, err)
