@@ -12,11 +12,8 @@ import (
 
 // In this challenge, you need to implement a log system. It basically has 2 API, one for log and another for search.
 func TestChallenge1(t *testing.T) {
+	// 虽然这里说的是服务器，但是你不需要写任何网络相关的东西。这里的服务器是概念上的，就是一个一直运行的 Goroutine。
 	server := biglog.StartServer() // starts a server in its own goroutine and return the server.
-	defer func() {
-		err := server.Close()
-		require.NoError(t, err)
-	}()
 
 	// The only requirement is that it accepts an io.Reader. You need to decide the storage mechanism.
 	// 唯一的要求是 Log 函数接受一个 io.Reader。你自己需要决定储存机制。
@@ -50,4 +47,13 @@ func TestChallenge1(t *testing.T) {
 	// Question:
 	//		Because this is a log system, should you trust the 'time' which users input? Should the system have its own time?
 	//		因为这是一个日志系统，你应该相信用户输入的时间吗？系统需要自己记录时间吗？ 
+
+	err = server.Close()
+	require.NoError(t, err)
+
+	// After the server is closed, it will refuse any api.
+	err = server.Log("does not matter")
+	// What should the err be?
+
+	? = server.Search(?) // So, do you think Search should return an error now?
 }
