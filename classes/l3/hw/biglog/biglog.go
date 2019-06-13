@@ -33,15 +33,21 @@ func (l *logger) Log(data io.Reader) error {
 		return err // todo: handle it
 	}
 	l.data[id] =  r
-	fmt.Println(l.data)
 	return nil
 }
 
 // Record is used for user to define their own filter function.
 type Record map[string]interface{}
 
-func (l *logger) All(f func(Record) bool) (r map[int64]Record, err error) {
-	r = make(map[int64]Record)
+type searchResult map[int64]Record
+
+func (s searchResult) String() (string, error) {
+	b, err := json.Marshal(s)
+	return string(b), err
+}
+
+func (l *logger) All(f func(Record) bool) (r searchResult, err error) {
+	r = make(searchResult)
 	for id, v := range l.data {
 		if f(Record(v)) {
 			r[id] = Record(v)
